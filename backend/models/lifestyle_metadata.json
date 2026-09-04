@@ -1,0 +1,29 @@
+{
+  "model_version": "v2.0",
+  "stage": "lifestyle_screening",
+  "random_state": 42,
+  "features": [
+    "Age",
+    "Sex",
+    "BMI",
+    "Smoker",
+    "HvyAlcoholConsump",
+    "PhysActivity",
+    "Fruits",
+    "Veggies",
+    "Diabetes"
+  ],
+  "target": "HeartDiseaseorAttack",
+  "threshold": 0.1,
+  "test_metrics": {
+    "accuracy": 0.6511956829209914,
+    "precision": 0.19861148197596795,
+    "recall": 0.7841028884672149,
+    "f1": 0.31694221919209137,
+    "roc_auc": 0.7770085505580315,
+    "pr_auc": 0.2641462148419208,
+    "brier_score": 0.0835181705766741
+  },
+  "training_rows": 183824,
+  "test_rows": 45957
+}
