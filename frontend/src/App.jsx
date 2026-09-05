@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 
 import {
@@ -25,6 +26,22 @@ const API_URL =
   import.meta.env.VITE_API_URL ||
   "http://127.0.0.1:8000";
 
+
+const AGE_GROUPS = [
+  { value: 1, range: "18–24 years" },
+  { value: 2, range: "25–29 years" },
+  { value: 3, range: "30–34 years" },
+  { value: 4, range: "35–39 years" },
+  { value: 5, range: "40–44 years" },
+  { value: 6, range: "45–49 years" },
+  { value: 7, range: "50–54 years" },
+  { value: 8, range: "55–59 years" },
+  { value: 9, range: "60–64 years" },
+  { value: 10, range: "65–69 years" },
+  { value: 11, range: "70–74 years" },
+  { value: 12, range: "75–79 years" },
+  { value: 13, range: "80+ years" },
+];
 
 function App() {
 
@@ -226,6 +243,28 @@ function Dashboard({ user, onLogout }) {
         )}
 
       </main>
+
+      <footer className="heartwise-footer">
+        <div className="footer-content">
+          <div className="footer-brand">
+            <div className="footer-logo">
+              <img
+                src="/heartwise-logo.svg"
+                alt="HeartWise logo"
+              />
+            </div>
+            <span>HeartWise</span>
+          </div>
+
+          <p className="footer-copy">
+            © {new Date().getFullYear()} HeartWise. All rights reserved.
+          </p>
+
+          <p className="footer-made">
+            Made with <span aria-label="love">♥</span> by Aanshika Verma
+          </p>
+        </div>
+      </footer>
 
     </div>
   );
@@ -611,7 +650,7 @@ function LifestyleAssessment({
 
           <Field
             label="Age group"
-            help="Select the age group that best represents you."
+            help="Choose the age range that includes your current age. The groups match the age categories used by the lifestyle model."
           >
 
             <select
@@ -624,17 +663,14 @@ function LifestyleAssessment({
               }
             >
 
-              {Array.from(
-                { length: 13 },
-                (_, i) => (
-                  <option
-                    key={i + 1}
-                    value={i + 1}
-                  >
-                    Age group {i + 1}
-                  </option>
-                )
-              )}
+              {AGE_GROUPS.map((group) => (
+                <option
+                  key={group.value}
+                  value={group.value}
+                >
+                  Group {group.value} — {group.range}
+                </option>
+              ))}
 
             </select>
 
