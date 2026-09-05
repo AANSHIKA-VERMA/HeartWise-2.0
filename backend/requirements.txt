@@ -1,9 +1,10 @@
-fastapi 
-uvicorn 
-joblib 
-pandas 
-numpy 
-scikit-learn 
+fastapi
+uvicorn[standard]
+joblib
+pandas
+numpy
+scikit-learn
 xgboost
-pytest 
+shap
+pytest
 httpx

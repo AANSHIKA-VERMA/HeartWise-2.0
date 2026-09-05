@@ -1,3 +1,5 @@
+from typing import List
+
 from pydantic import BaseModel, Field
 
 
@@ -15,7 +17,15 @@ class ClinicalInput(BaseModel):
     ST_Slope: str
 
 
+class ClinicalFactor(BaseModel):
+    factor: str
+    impact: str
+    detail: str
+
+
 class ClinicalResponse(BaseModel):
     risk: str
     prediction: int
     score: float
+    factors: List[ClinicalFactor]
+    recommendations: List[str]
