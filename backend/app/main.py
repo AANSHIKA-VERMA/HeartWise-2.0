@@ -27,14 +27,24 @@ app = FastAPI(
 )
 
 
+# --------------------------------------------------
+# CORS CONFIGURATION
+# --------------------------------------------------
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "https://YOUR-FRONTEND-URL.onrender.com"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
+
+# --------------------------------------------------
+# ROOT
+# --------------------------------------------------
 
 @app.get("/")
 def root():
@@ -45,6 +55,10 @@ def root():
     }
 
 
+# --------------------------------------------------
+# HEALTH CHECK
+# --------------------------------------------------
+
 @app.get("/health")
 def health():
 
@@ -53,6 +67,10 @@ def health():
         "service": "heartwise-api"
     }
 
+
+# --------------------------------------------------
+# LIFESTYLE PREDICTION
+# --------------------------------------------------
 
 @app.post(
     "/predict/lifestyle",
@@ -75,6 +93,10 @@ def lifestyle_prediction(
             detail=f"Lifestyle prediction failed: {str(e)}"
         )
 
+
+# --------------------------------------------------
+# CLINICAL PREDICTION
+# --------------------------------------------------
 
 @app.post(
     "/predict/clinical",
