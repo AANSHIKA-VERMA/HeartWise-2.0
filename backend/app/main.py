@@ -34,7 +34,7 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://YOUR-FRONTEND-URL.onrender.com"
+        "https://heartwise-frontend.onrender.com"
     ],
     allow_credentials=True,
     allow_methods=["*"],
